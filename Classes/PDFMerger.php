@@ -74,6 +74,8 @@ class PDFMerger
         if (!isset($this->_files) || !is_array($this->_files)): throw new exception("No PDFs to merge."); endif;
 
         $fpdi = new FPDI;
+        $fpdi->setPrintHeader(false); // prevent to print a line in the header
+		$fpdi->setPrintFooter(false); // prevent to print a line in the bootom of the page
 
         //merger operations
         foreach ($this->_files as $file) {
